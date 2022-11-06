@@ -3,9 +3,9 @@
 This respository contains the models created to predict social unrest from news articles.
 
 ## NLP Models:
-1. bi-LSTM Models
-2. rnn Models
-3. bi-rnn Models
+1. Bi-LSTM Models
+2. RNN Models
+3. Bi-RNN Models
 
 ## Breakdown of prediction:
 1. News Classifier
