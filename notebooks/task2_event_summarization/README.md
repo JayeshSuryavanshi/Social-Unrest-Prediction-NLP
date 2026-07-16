@@ -4,9 +4,9 @@ Generates an ACLED-style narrative event summary from structured event fields �
 
 **Notebook:** [`Tesla_SUP_Subtask2_2.ipynb`](Tesla_SUP_Subtask2_2.ipynb)
 
-**Approach:** T5-base (Hugging Face `transformers`) fine-tuned with the Adafactor optimizer for 8 epochs on ~90k training rows; ACLED's numeric `INTERACTION` codes are first decoded into readable actor-pair phrases.
+**Approach:** T5-base (Hugging Face `transformers`) fine-tuned with the Adafactor optimizer on ~90k training rows; ACLED's numeric `INTERACTION` codes are first decoded into readable actor-pair phrases. The saved run trained for a **single epoch** (~11,250 batches — about an hour on a Colab GPU per the report; a later cell aspirationally sets 8 epochs, but the saved outputs show one).
 
-**Results (saved 2022 run, first 100 validation examples):**
+**Results (saved 2022 run — 1 epoch, first 100 validation examples):**
 
 | Metric | F1 | Precision | Recall |
 |---|---|---|---|
@@ -23,5 +23,5 @@ Generates an ACLED-style narrative event summary from structured event fields �
 ## Caveats
 
 - This was the **only** implementation of Task 2 — no Milestone 2 version ever existed.
-- The fine-tuned model was **never saved to disk**, so the ROUGE numbers can't be reproduced without retraining (~11k batches × 8 epochs on a Colab GPU).
-- See the provenance cell at the top of the notebook for the exact post-hoc edits from the 2026 cleanup (section headers added, one empty cell and a redundant epoch assignment removed).
+- The fine-tuned model was **never saved to disk**, so the ROUGE numbers can't be reproduced without retraining (~11k batches per epoch on a Colab GPU).
+- See the provenance cell at the top of the notebook for the exact post-hoc edits from the 2026 cleanup (section headers added, one empty cell removed).

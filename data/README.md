@@ -9,11 +9,11 @@ The course distributed seven ACLED-derived TSV files ("Project 2 data"). The not
 | File | Rows | Size | Used by |
 |---|---|---|---|
 | `task_1_information_extraction_train.tsv` | 100,000 | 29 MB | Task 1 classifier |
-| `task_1_information_extraction_valid.tsv` | 12,712 | 4 MB | Task 1 classifier |
-| `task_1_information_extraction_test.tsv` | 12,712 | 3 MB | Task 1 classifier |
+| `task_1_information_extraction_valid.tsv` | 12,711 | 4 MB | Task 1 classifier |
+| `task_1_information_extraction_test.tsv` | 12,711 | 3 MB | Task 1 classifier |
 | `task_2_event_summarization_train.tsv` | 90,000 | 31 MB | Task 2 (T5) |
-| `task_2_event_summarization_valid.tsv` | 11,704 | 4 MB | Task 2 (T5) |
-| `task_2_event_summarization_test.tsv` | 11,704 | 2 MB | (not referenced by the notebooks) |
+| `task_2_event_summarization_valid.tsv` | 11,703 | 4 MB | Task 2 (T5) |
+| `task_2_event_summarization_test.tsv` | 11,703 | 2 MB | (not referenced by the notebooks) |
 | `task_3_event_prediction.tsv` | 115,664 | 57 MB | Task 3 M2 (LSTM) |
 
 Columns include ACLED's standard fields: `NOTES`, `EVENT_DATE`, `SOURCE`, `FATALITIES`, `EVENT_TYPE`, `SUB_EVENT_TYPE`, `ACTOR1`, `INTER1`, `ACTOR2`, `INTER2`, `INTERACTION`, `LOCATION`, ….
