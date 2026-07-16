@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you reference this project, please cite it as below."
+title: "Monitoring and Predicting Social Unrest"
+type: software
+authors:
+  - family-names: Suryavanshi
+    given-names: Jayesh
+  - family-names: Aher
+    given-names: Sumeet
+  - family-names: Sharma
+    given-names: Krati
+date-released: 2022-06-03
+repository-code: "https://github.com/JayeshSuryavanshi/Social-Unrest-Prediction-NLP"
+abstract: >-
+  NLP course project (University at Buffalo, 2022): event-type
+  classification, T5-based event summarization, and news-driven event
+  prediction over ACLED conflict data.
+notes: >-
+  Uses ACLED (Armed Conflict Location & Event Data) as the underlying
+  data source; ACLED data is subject to its own terms of use.
