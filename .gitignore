@@ -1,6 +1,18 @@
-# Datasets are NOT versioned — download ACLED data separately (see README)
-Project Data/
+# Datasets are NOT versioned — see data/README.md for how to obtain them
+data/*
+!data/README.md
 *.tsv
+ACLED*.csv
+bingNews.csv
+getBingNews*.csv
+bingACLEDNewsMatch.csv
+glove*.txt
+
+# Python / Jupyter
+.ipynb_checkpoints/
+__pycache__/
+venv/
+.venv/
 
 # macOS cruft
 .DS_Store

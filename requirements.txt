@@ -1,0 +1,26 @@
+# Documents the 2022 Google Colab environment these notebooks ran in.
+# This is NOT a tested lockfile: the notebooks are preserved as a historical
+# record and are not guaranteed to re-run end-to-end (see README.md).
+
+# Core
+pandas
+numpy
+scikit-learn>=0.20  # the old sklearn.cross_validation import was fixed in the 2026 cleanup
+matplotlib
+seaborn
+python-dateutil
+requests
+
+# Task 2 — T5 summarization
+torch
+transformers
+sentencepiece
+nltk
+rouge  # evaluation uses `from rouge import Rouge`
+
+# Task 3, Milestone 2 — LSTM
+tensorflow  # Keras LSTM
+spacy       # + python -m spacy download en_core_web_sm
+
+# Task 3, Milestone 3 — news pipeline
+newspaper3k
