@@ -17,7 +17,7 @@ Three notebooks, run in order:
 2. **`Labelling_Event_with_ACLED.ipynb`** — labels each article by TF-IDF cosine similarity (threshold ≥ 0.3) against ACLED event notes from the same period (`ACLED2019data.csv`, Jan–Feb 2019), recording the news-to-event date gap → `bingACLEDNewsMatch.csv`.
 3. **`Training_and_Prediction.ipynb`** — trains binary classifiers on the labeled articles (1,065 rows, keywords as features).
 
-**Results (saved 2022 run, 10% held-out test set, n=107):** SGDClassifier 0.85 · Logistic Regression 0.85 · Multinomial NB 0.83 accuracy. Among matched pairs, news preceded its ACLED event by **≈5 days on average** — the pipeline's effective warning lead time.
+**Results (saved run, 10% held-out test set, n=107):** SGDClassifier 0.85 · Logistic Regression 0.85 · Multinomial NB 0.83 accuracy. Among matched pairs, news preceded its ACLED event by **≈5 days on average** — the pipeline's effective warning lead time. These numbers match the 2022 report's screenshots, but note the saved outputs of notebooks 1 and 3 were produced in a pre-2022 environment (details in their provenance cells).
 
 ## Data
 

@@ -45,11 +45,13 @@ The course ran in three milestones. Not everything described in the report has c
             └── Training_and_Prediction.ipynb  # 3) train/evaluate event-prediction classifiers
 ```
 
+Each `notebooks/task*/` directory also carries its own README with run instructions and per-task caveats.
+
 ## Results
 
-All numbers below are from the saved notebook outputs of the original 2022 runs (see each notebook for the full classification reports).
+All numbers below are from the notebooks' saved outputs and match the results presented in the 2022 project report (see each notebook for the full classification reports, and its provenance cell for caveats about where its outputs came from).
 
-**Task 1 — event-type classification** (5-fold CV accuracy; run on a ~100-row sample of the training set, hence the modest numbers — the report cites ~65% for Multinomial NB on a fuller run):
+**Task 1 — event-type classification** (5-fold CV accuracy; run on a ~100-row sample of the training set, hence the modest numbers — the report presents this same run, with Multinomial NB scoring highest):
 
 | Model | CV accuracy |
 |---|---|
@@ -58,7 +60,7 @@ All numbers below are from the saved notebook outputs of the original 2022 runs 
 | LinearSVC | 0.57 |
 | Random Forest | 0.50 |
 
-**Task 2 — T5 summarization** (first 100 validation examples):
+**Task 2 — T5 summarization** (1-epoch fine-tune; first 100 validation examples):
 
 | Metric | F1 | Precision | Recall |
 |---|---|---|---|
@@ -89,7 +91,7 @@ None of the datasets are versioned here (ACLED's terms don't permit redistributi
 
 ## Reproducibility & environment
 
-These notebooks are a **historical record**, not a maintained pipeline. They were written for Google Colab (GPU for Tasks 2/3) and still contain `/content/...` and Google Drive paths. [`requirements.txt`](requirements.txt) documents the stack; re-execution end-to-end is not guaranteed and was deliberately not attempted during cleanup — every saved output you see is from the original 2022 runs.
+These notebooks are a **historical record**, not a maintained pipeline. They were written for Google Colab (GPU for Tasks 2/3) and still contain `/content/...` and Google Drive paths. [`requirements.txt`](requirements.txt) documents the stack; re-execution end-to-end is not guaranteed and was deliberately not attempted during cleanup — no saved output was produced after 2022, and nothing was re-executed. (For two of the Milestone 3 pipeline notebooks the saved outputs demonstrably come from an even older, pre-2022 environment — see their provenance cells and Known gaps below.)
 
 ## Known gaps & limitations
 
@@ -98,6 +100,7 @@ These notebooks are a **historical record**, not a maintained pipeline. They wer
 - The Task 2 **fine-tuned T5 model was never saved**, so its ROUGE numbers can't be reproduced without retraining.
 - Task 1's saved metrics come from a ~100-row sample; Task 2's ROUGE from 100 validation examples.
 - The Task 3 M2 LSTM run had a **GloVe loading error** (traceback preserved in the notebook) and its metrics were never captured.
+- The Task 3 M3 pipeline's saved outputs come from a **pre-2022 environment** (macOS Anaconda, Python 3.5, scikit-learn ≤ 0.19) matching no team member, which suggests parts of that pipeline were adapted from earlier third-party code with its outputs retained; the numbers do match the 2022 report's screenshots. Details in those notebooks' provenance cells.
 - Several small 2022 bugs were found and fixed during the 2026 cleanup (a validation-features copy-paste bug, a page-fetch loop-indentation bug, a removed-in-sklearn-0.20 import, a missing seaborn import). Each notebook's provenance cell states exactly what changed; all saved outputs predate the fixes.
 
 ## Repository history notes
