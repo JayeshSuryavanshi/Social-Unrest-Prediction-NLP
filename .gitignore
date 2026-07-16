@@ -1,0 +1,7 @@
+# Datasets are NOT versioned — download ACLED data separately (see README)
+Project Data/
+*.tsv
+
+# macOS cruft
+.DS_Store
+__MACOSX/
