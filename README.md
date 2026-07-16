@@ -107,7 +107,7 @@ These notebooks are a **historical record**, not a maintained pipeline. They wer
 
 **2026 cleanup.** The repo was restructured from the original `Team Tesla/codebase/Milestone N/Task M/` layout into the task-centric tree above; a byte-identical duplicate notebook was deduplicated, 1.7 MB of junk cell output was stripped, the bugs above were fixed, and this README replaced a generic placeholder. The full original layout is preserved in git history.
 
-**Security disclosure.** The 2022 code hardcoded an Azure Bing News Search v7 subscription key, which therefore exists in this repository's git history. It was scrubbed from the working tree in the 2026 cleanup and is inert regardless: Microsoft retired the Bing Search APIs in August 2025, and the endpoint no longer exists. History was deliberately not rewritten — the key appears in nearly every historical commit, so a rewrite would invalidate all existing commit URLs/forks while GitHub would still retain cached views; the working-tree scrub plus this disclosure is the honest fix.
+**Security disclosure.** The 2022 code hardcoded an Azure Bing News Search v7 subscription key, and ~135 MB of course-provided ACLED-derived TSVs were committed early on. In the 2026 cleanup the git history was rewritten to purge both (plus a zip that duplicated the key): the key string is redacted everywhere, and the datasets are gone from history in line with ACLED's redistribution terms. The key was inert regardless — Microsoft retired the Bing Search APIs in August 2025. If you hold an old clone or a pre-2026 commit link, it will not match the rewritten history.
 
 ## License
 
