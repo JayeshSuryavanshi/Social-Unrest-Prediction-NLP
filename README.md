@@ -4,6 +4,8 @@ NLP course project — University at Buffalo, 2022.
 **Team Tesla:** Jayesh Suryavanshi · Sumeet Aher · Krati Sharma
 Course taught by Dr. Rohini K. Srihari (TAs: Sougata Saha, Souvik Das). Full write-up: [`docs/report.pdf`](docs/report.pdf).
 
+> 🔭 **Revived in 2026 →** [**social-unrest-forecasting**](https://github.com/JayeshSuryavanshi/social-unrest-forecasting) — a from-scratch rebuild as a rigorous *out-of-time forecasting* study on current ACLED/GDELT data. It replaces this project's leaky "prediction" step with a proper leakage-free backtest, extends the test across 8 countries and deep GKG-theme text, and includes an adversarial-review pass. Honest headline finding: news text adds no forecasting skill beyond the event record.
+
 The project builds an early-warning pipeline around [ACLED](https://acleddata.com/) (Armed Conflict Location & Event Data): extract structure from conflict-event descriptions, generate ACLED-style event summaries, and predict upcoming unrest events from news streams.
 
 Built in spring 2022 — before ChatGPT — with the then-standard NLP toolkit: TF-IDF + classical scikit-learn models, GloVe embeddings + a Keras LSTM, and a fine-tuned T5 transformer. The notebooks are preserved as a faithful record of that work; see [Reproducibility](#reproducibility--environment) and the provenance note at the top of each notebook for what was (and was not) touched in the 2026 cleanup.
