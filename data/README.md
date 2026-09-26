@@ -1,6 +1,6 @@
 # Data
 
-No datasets are versioned in this repository — ACLED's [terms of use](https://acleddata.com/terms-of-use/) don't permit redistribution, and the files totaled ~130 MB (they were removed from version control in 2026; the notebooks' saved outputs still reflect runs on the original files).
+No datasets are versioned in this repository: ACLED's [terms of use](https://acleddata.com/terms-of-use/) don't permit redistribution, and the files totaled ~130 MB (they were removed from version control in 2026; the notebooks' saved outputs still reflect runs on the original files).
 
 ## Course-provided TSVs
 
@@ -18,14 +18,14 @@ The course distributed seven ACLED-derived TSV files ("Project 2 data"). The not
 
 Columns include ACLED's standard fields: `NOTES`, `EVENT_DATE`, `SOURCE`, `FATALITIES`, `EVENT_TYPE`, `SUB_EVENT_TYPE`, `ACTOR1`, `INTER1`, `ACTOR2`, `INTER2`, `INTERACTION`, `LOCATION`, ….
 
-To rebuild equivalents, register at [acleddata.com](https://acleddata.com/) and use the ACLED export tool, then split per task. Exact reproduction of the course splits is not possible — the original TSVs were course-provided.
+To rebuild equivalents, register at [acleddata.com](https://acleddata.com/) and use the ACLED export tool, then split per task. Exact reproduction of the course splits is not possible; the original TSVs were course-provided.
 
-**Filename quirk:** the Milestone 2 LSTM notebook reads `task_1_information_extraction_training_set.tsv` — a name that matches none of the files above. Its saved output shows shape `(115668, 30)`, which is far closer to `task_3_event_prediction.tsv` (115,664 rows) than to any Task 1 file, so it was most likely the same ACLED extract in a marginally different cut. Kept as-is; point it at your equivalent file if you re-run.
+**Filename quirk:** the Milestone 2 LSTM notebook reads `task_1_information_extraction_training_set.tsv`, a name that matches none of the files above. Its saved output shows shape `(115668, 30)`, which is far closer to `task_3_event_prediction.tsv` (115,664 rows) than to any Task 1 file, so it was most likely the same ACLED extract in a marginally different cut. Kept as-is; point it at your equivalent file if you re-run.
 
 ## Other inputs
 
-- **`ACLED2019data.csv`** — an ACLED export covering **1 Jan – 28 Feb 2019**, used by `Labelling_Event_with_ACLED.ipynb` to label news articles. Pull the same date range from the ACLED export tool.
-- **`glove.6B.300d.txt`** — GloVe 300-d embeddings from the [Stanford NLP GloVe page](https://nlp.stanford.edu/projects/glove/) (`glove.6B.zip`), used by the Milestone 2 LSTM notebook.
+- **`ACLED2019data.csv`**: an ACLED export covering **1 Jan-28 Feb 2019**, used by `Labelling_Event_with_ACLED.ipynb` to label news articles. Pull the same date range from the ACLED export tool.
+- **`glove.6B.300d.txt`**: GloVe 300-d embeddings from the [Stanford NLP GloVe page](https://nlp.stanford.edu/projects/glove/) (`glove.6B.zip`), used by the Milestone 2 LSTM notebook.
 
 ## Pipeline-generated files (cannot be regenerated)
 

@@ -11,16 +11,16 @@ seaborn
 python-dateutil
 requests
 
-# Task 2 — T5 summarization
+# Task 2: T5 summarization
 torch
 transformers
 sentencepiece
 nltk
 rouge  # evaluation uses `from rouge import Rouge`
 
-# Task 3, Milestone 2 — LSTM
+# Task 3, Milestone 2: LSTM
 tensorflow  # Keras LSTM
 spacy       # + python -m spacy download en_core_web_sm
 
-# Task 3, Milestone 3 — news pipeline
+# Task 3, Milestone 3: news pipeline
 newspaper3k

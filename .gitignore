@@ -1,4 +1,4 @@
-# Datasets are NOT versioned — see data/README.md for how to obtain them
+# Datasets are NOT versioned (see data/README.md for how to obtain them)
 data/*
 !data/README.md
 *.tsv

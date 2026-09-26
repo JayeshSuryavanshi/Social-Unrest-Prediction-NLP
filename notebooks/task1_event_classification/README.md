@@ -1,10 +1,10 @@
-# Task 1 — Information Extraction (event-type classification)
+# Task 1: Information Extraction (event-type classification)
 
 Classifies an ACLED event description (the free-text `NOTES` field) into one of six event types: Battles, Explosions/Remote violence, Protests, Riots, Strategic developments, Violence against civilians.
 
 **Notebook:** [`Task1Classifier.ipynb`](Task1Classifier.ipynb)
 
-**Approach:** TF-IDF features (sublinear TF, 1–2 grams, English stop words) benchmarked across LinearSVC, Logistic Regression, Multinomial Naive Bayes, and Random Forest with 5-fold cross-validation, followed by a confusion-matrix and misclassification analysis of the LinearSVC model.
+**Approach:** TF-IDF features (sublinear TF, 1-2 grams, English stop words) benchmarked across LinearSVC, Logistic Regression, Multinomial Naive Bayes, and Random Forest with 5-fold cross-validation, followed by a confusion-matrix and misclassification analysis of the LinearSVC model.
 
 **Results (saved 2022 run, ~100-row sample):** Logistic Regression 0.59 · Multinomial NB 0.59 · LinearSVC 0.57 · Random Forest 0.50 (CV accuracy). The report presents this same run, with Multinomial NB scoring highest among the four.
 

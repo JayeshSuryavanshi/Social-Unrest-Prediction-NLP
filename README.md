@@ -1,31 +1,31 @@
 # Monitoring and Predicting Social Unrest
 
-NLP course project — University at Buffalo, 2022.
+NLP course project, University at Buffalo, 2022.
 **Team Tesla:** Jayesh Suryavanshi · Sumeet Aher · Krati Sharma
 Course taught by Dr. Rohini K. Srihari (TAs: Sougata Saha, Souvik Das). Full write-up: [`docs/report.pdf`](docs/report.pdf).
 
-> 🔭 **Revived in 2026 →** [**social-unrest-forecasting**](https://github.com/JayeshSuryavanshi/social-unrest-forecasting) — a from-scratch rebuild as a rigorous *out-of-time forecasting* study on current ACLED/GDELT data. It replaces this project's leaky "prediction" step with a proper leakage-free backtest, extends the test across 8 countries and deep GKG-theme text, and includes an adversarial-review pass. Honest headline finding: news text adds no forecasting skill beyond the event record.
+> 🔭 **Revived in 2026 →** [**social-unrest-forecasting**](https://github.com/JayeshSuryavanshi/social-unrest-forecasting), a from-scratch rebuild as a rigorous *out-of-time forecasting* study on current ACLED/GDELT data. It replaces this project's leaky "prediction" step with a proper leakage-free backtest, extends the test across 8 countries and deep GKG-theme text, and includes an adversarial-review pass. Honest headline finding: news text adds no forecasting skill beyond the event record.
 
 The project builds an early-warning pipeline around [ACLED](https://acleddata.com/) (Armed Conflict Location & Event Data): extract structure from conflict-event descriptions, generate ACLED-style event summaries, and predict upcoming unrest events from news streams.
 
-Built in spring 2022 — before ChatGPT — with the then-standard NLP toolkit: TF-IDF + classical scikit-learn models, GloVe embeddings + a Keras LSTM, and a fine-tuned T5 transformer. The notebooks are preserved as a faithful record of that work; see [Reproducibility](#reproducibility--environment) and the provenance note at the top of each notebook for what was (and was not) touched in the 2026 cleanup.
+Built in spring 2022, before ChatGPT, with the then-standard NLP toolkit: TF-IDF + classical scikit-learn models, GloVe embeddings + a Keras LSTM, and a fine-tuned T5 transformer. The notebooks are preserved as a faithful record of that work; see [Reproducibility](#reproducibility--environment) and the provenance note at the top of each notebook for what was (and was not) touched in the 2026 cleanup.
 
 ## The three tasks
 
 | | What it does | Approach | Where |
 |---|---|---|---|
-| **Task 1 — Information extraction** | Classify an ACLED event description (`NOTES`) into one of 6 event types (Battles, Explosions/Remote violence, Protests, Riots, Strategic developments, Violence against civilians) | TF-IDF (1–2 grams) → LinearSVC / Logistic Regression / Multinomial NB / Random Forest | [`notebooks/task1_event_classification/`](notebooks/task1_event_classification/) |
-| **Task 2 — Event summarization** | Generate an ACLED-style narrative summary from structured event fields (date, actors, location, fatalities, …) | T5-base fine-tuned on ~90k ACLED rows (structured-to-text) | [`notebooks/task2_event_summarization/`](notebooks/task2_event_summarization/) |
-| **Task 3 — Event prediction** | Predict whether an unrest event will occur, from news text | M2: GloVe + LSTM over daily event sequences · M3: Bing News ↔ ACLED matching + SGD/LogReg/MNB classifiers | [`notebooks/task3_event_prediction/`](notebooks/task3_event_prediction/) |
+| **Task 1: Information extraction** | Classify an ACLED event description (`NOTES`) into one of 6 event types (Battles, Explosions/Remote violence, Protests, Riots, Strategic developments, Violence against civilians) | TF-IDF (1-2 grams) → LinearSVC / Logistic Regression / Multinomial NB / Random Forest | [`notebooks/task1_event_classification/`](notebooks/task1_event_classification/) |
+| **Task 2: Event summarization** | Generate an ACLED-style narrative summary from structured event fields (date, actors, location, fatalities, …) | T5-base fine-tuned on ~90k ACLED rows (structured-to-text) | [`notebooks/task2_event_summarization/`](notebooks/task2_event_summarization/) |
+| **Task 3: Event prediction** | Predict whether an unrest event will occur, from news text | M2: GloVe + LSTM over daily event sequences · M3: Bing News ↔ ACLED matching + SGD/LogReg/MNB classifiers | [`notebooks/task3_event_prediction/`](notebooks/task3_event_prediction/) |
 
 ### What exists where (tasks × milestones)
 
-The course ran in three milestones. Not everything described in the report has code in this repository — this matrix is the honest inventory:
+The course ran in three milestones. Not everything described in the report has code in this repository. This matrix is the honest inventory:
 
 | | Milestone 1 | Milestone 2 | Milestone 3 |
 |---|---|---|---|
 | **Task 1** | report only | ✅ `Task1Classifier.ipynb` | same notebook (M2/M3 submissions were byte-identical; the report's BERT tagging upgrade was never committed) |
-| **Task 2** | report only | — (never implemented) | ✅ `Tesla_SUP_Subtask2_2.ipynb` (T5) |
+| **Task 2** | report only | n/a (never implemented) | ✅ `Tesla_SUP_Subtask2_2.ipynb` (T5) |
 | **Task 3** | report only | ✅ `Task3_milestone2.ipynb` (LSTM) | ✅ 3-notebook news pipeline |
 
 ## Repository map
@@ -53,7 +53,7 @@ Each `notebooks/task*/` directory also carries its own README with run instructi
 
 All numbers below are from the notebooks' saved outputs and match the results presented in the 2022 project report (see each notebook for the full classification reports, and its provenance cell for caveats about where its outputs came from).
 
-**Task 1 — event-type classification** (5-fold CV accuracy; run on a ~100-row sample of the training set, hence the modest numbers — the report presents this same run, with Multinomial NB scoring highest):
+**Task 1: event-type classification** (5-fold CV accuracy; run on a ~100-row sample of the training set, hence the modest numbers; the report presents this same run, with Multinomial NB scoring highest):
 
 | Model | CV accuracy |
 |---|---|
@@ -62,7 +62,7 @@ All numbers below are from the notebooks' saved outputs and match the results pr
 | LinearSVC | 0.57 |
 | Random Forest | 0.50 |
 
-**Task 2 — T5 summarization** (1-epoch fine-tune; first 100 validation examples):
+**Task 2: T5 summarization** (1-epoch fine-tune; first 100 validation examples):
 
 | Metric | F1 | Precision | Recall |
 |---|---|---|---|
@@ -70,9 +70,9 @@ All numbers below are from the notebooks' saved outputs and match the results pr
 | ROUGE-2 | 0.184 | 0.351 | 0.129 |
 | ROUGE-L | 0.359 | 0.619 | 0.261 |
 
-**Task 3 — event prediction, Milestone 3 pipeline** (1,065 news articles labeled by ACLED matching; 10% held-out test set, n=107):
+**Task 3: event prediction, Milestone 3 pipeline** (1,065 news articles labeled by ACLED matching; 10% held-out test set, n=107):
 
-> ⚠️ **Read this before the numbers below.** These labels were generated by cosine-matching each news article to an ACLED event, and the classifier is then trained on the *same* news text to predict those derived labels. That is **circular — the 0.85 is a label-leakage artifact, not out-of-sample forecasting skill.** The 2026 rebuild ([**social-unrest-forecasting**](https://github.com/JayeshSuryavanshi/social-unrest-forecasting)) redoes this as a proper leakage-free, out-of-time backtest and finds that news text adds **no forecasting skill beyond the event record.** Treat the table below as a historical record of the coursework pipeline, not as an evaluation of predictive performance.
+> ⚠️ **Read this before the numbers below.** These labels were generated by cosine-matching each news article to an ACLED event, and the classifier is then trained on the *same* news text to predict those derived labels. That is **circular: the 0.85 is a label-leakage artifact, not out-of-sample forecasting skill.** The 2026 rebuild ([**social-unrest-forecasting**](https://github.com/JayeshSuryavanshi/social-unrest-forecasting)) redoes this as a proper leakage-free, out-of-time backtest and finds that news text adds **no forecasting skill beyond the event record.** Treat the table below as a historical record of the coursework pipeline, not as an evaluation of predictive performance.
 
 | Model | Accuracy | F1 (weighted) |
 |---|---|---|
@@ -80,7 +80,7 @@ All numbers below are from the notebooks' saved outputs and match the results pr
 | Logistic Regression | 0.85 | 0.85 |
 | Multinomial Naive Bayes | 0.83 | 0.83 |
 
-Among matched news–event pairs, the news article preceded its ACLED event by **≈5 days on average** — but per the caveat above, this reflects the news-to-event matching window, not a validated predictive lead time.
+Among matched news-event pairs, the news article preceded its ACLED event by **≈5 days on average**, but per the caveat above, this reflects the news-to-event matching window, not a validated predictive lead time.
 
 (Task 3 Milestone 2, the LSTM approach: training/evaluation outputs were not captured in the saved run, so no metrics survive; the report discusses it qualitatively.)
 
@@ -89,13 +89,13 @@ Among matched news–event pairs, the news article preceded its ACLED event by *
 None of the datasets are versioned here (ACLED's terms don't permit redistribution, and the files total ~130 MB). [`data/README.md`](data/README.md) lists every file the notebooks expect and how to obtain it:
 
 - the seven course-provided ACLED-derived TSVs (train/valid/test per task),
-- an ACLED export (Jan–Feb 2019) for the news-labeling step,
+- an ACLED export (Jan-Feb 2019) for the news-labeling step,
 - GloVe 300-d embeddings,
-- the Bing News CSVs — **these can no longer be regenerated**: Microsoft retired the Bing News Search v7 API in August 2025.
+- the Bing News CSVs (**these can no longer be regenerated**: Microsoft retired the Bing News Search v7 API in August 2025).
 
 ## Reproducibility & environment
 
-These notebooks are a **historical record**, not a maintained pipeline. They were written for Google Colab (GPU for Tasks 2/3) and still contain `/content/...` and Google Drive paths. [`requirements.txt`](requirements.txt) documents the stack; re-execution end-to-end is not guaranteed and was deliberately not attempted during cleanup — no saved output was produced after 2022, and nothing was re-executed. (For two of the Milestone 3 pipeline notebooks the saved outputs demonstrably come from an even older, pre-2022 environment — see their provenance cells and Known gaps below.)
+These notebooks are a **historical record**, not a maintained pipeline. They were written for Google Colab (GPU for Tasks 2/3) and still contain `/content/...` and Google Drive paths. [`requirements.txt`](requirements.txt) documents the stack; re-execution end-to-end is not guaranteed and was deliberately not attempted during cleanup: no saved output was produced after 2022, and nothing was re-executed. (For two of the Milestone 3 pipeline notebooks the saved outputs demonstrably come from an even older, pre-2022 environment. See their provenance cells and Known gaps below.)
 
 ## Known gaps & limitations
 
@@ -111,7 +111,7 @@ These notebooks are a **historical record**, not a maintained pipeline. They wer
 
 **2026 cleanup.** The repo was restructured from the original `Team Tesla/codebase/Milestone N/Task M/` layout into the task-centric tree above; a byte-identical duplicate notebook was deduplicated, 1.7 MB of junk cell output was stripped, the bugs above were fixed, and this README replaced a generic placeholder. The full original layout is preserved in git history.
 
-**Security disclosure.** The 2022 code hardcoded an Azure Bing News Search v7 subscription key, and ~135 MB of course-provided ACLED-derived TSVs were committed early on. In the 2026 cleanup the git history was rewritten to purge both (plus a zip that duplicated the key): the key string is redacted everywhere, and the datasets are gone from history in line with ACLED's redistribution terms. The key was inert regardless — Microsoft retired the Bing Search APIs in August 2025. If you hold an old clone or a pre-2026 commit link, it will not match the rewritten history.
+**Security disclosure.** The 2022 code hardcoded an Azure Bing News Search v7 subscription key, and ~135 MB of course-provided ACLED-derived TSVs were committed early on. In the 2026 cleanup the git history was rewritten to purge both (plus a zip that duplicated the key): the key string is redacted everywhere, and the datasets are gone from history in line with ACLED's redistribution terms. The key was inert regardless: Microsoft retired the Bing Search APIs in August 2025. If you hold an old clone or a pre-2026 commit link, it will not match the rewritten history.
 
 ## License
 
